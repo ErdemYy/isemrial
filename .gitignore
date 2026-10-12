@@ -1,0 +1,54 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+backend/node_modules/
+
+# testing and tooling artifacts
+/coverage
+/.playwright-mcp/
+/test-results/
+/playwright-report/
+
+# next.js
+/.next/
+/out/
+
+# nest.js / backend builds
+/backend/dist/
+/dist/
+/build
+
+# misc & OS
+.DS_Store
+Thumbs.db
+*.pem
+
+# debug & logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# local env files
+.env*.local
+.env
+.env.staging
+.env.production
+.env.container
+backend/.env*
+!backend/.env.example
+!.env.example
+
+# database dumps, backups, and sqlite
+*.sql
+*.dump
+*.backup
+*.sqlite
+*.sqlite3
+*.db
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

@@ -1,0 +1,30 @@
+# ==============================================================================
+# İşEmriAl — Üretim Ortamı Docker Compose Override (docker-compose.prod.yml)
+# Güvenlik Sertleştirmesi: DB ve API host'a kapatılır, sadece Web dışa açılır.
+# Kullanım: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+# ==============================================================================
+
+services:
+  db:
+    ports: !reset []
+    restart: always
+
+  api:
+    ports: !reset []
+    restart: always
+    environment:
+      NODE_ENV: production
+      # Gerçek üretim ortamında SESSION_SECRET ve DATABASE_URL ortamdan zorunlu alınmalıdır
+      SESSION_SECRET: ${SESSION_SECRET:?HATA: Uretim icin SESSION_SECRET tanimlanmalidir!}
+      DATABASE_URL: ${DATABASE_URL:?HATA: Uretim icin DATABASE_URL tanimlanmalidir!}
+      FRONTEND_ORIGIN: ${FRONTEND_ORIGIN:?HATA: Uretim icin FRONTEND_ORIGIN tanimlanmalidir!}
+      TRUST_PROXY: "true"
+
+  web:
+    restart: always
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+    environment:
+      NODE_ENV: production
+      INTERNAL_API_URL: http://api:4000
+      NEXT_PUBLIC_ENABLE_DEMO_LOGIN: "false"

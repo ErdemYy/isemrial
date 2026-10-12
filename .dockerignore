@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build artifacts
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# Version Control & Documentation
+.git/
+.gitignore
+docs/
+prompts/
+.agents/
+.playwright-mcp/
+README.md
+AGENTS.md
+
+# Environment & Secrets
+.env
+.env.*
+*.pem
+
+# Database & Backups
+*.sql
+*.dump
+backend/
+docker-compose*.yml
+
+# Logs & Debug
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

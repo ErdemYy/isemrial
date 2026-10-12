@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+*.tsbuildinfo
+
+# Environment & Secrets
+.env
+.env.*
+*.pem
+
+# Test & Debug files
+test*.ts
+*.log
+
+# Database dumps
+*.sql
+*.dump
+
+# Version control & Docs
+.git/
+.gitignore
